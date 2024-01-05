@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pak RT Alarm</h1>
+
+<button id="toggleButton" onclick="toggleUrl()">Nyalakan</button>
+
+<script>
+    let isOn = false;
+
+    function toggleUrl() {
+        const button = document.getElementById('toggleButton');
+        isOn = !isOn;
+
+        const url = isOn ? 'https://2009-103-144-170-185.ngrok-free.app/on' : 'https://2009-103-144-170-185.ngrok-free.app/off';
+
+        fetch(url, {
+            method: 'GET'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        button.innerText = isOn ? 'Turn Off' : 'Turn On';
+    }
+</script>
+
+</body>
+</html>

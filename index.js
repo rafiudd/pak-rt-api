@@ -4,7 +4,7 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
-const arduinoIP = 'http://192.168.123.47'; // Replace with your Arduino's IP address
+const arduinoIP = 'http://192.168.123.44'; // Replace with your Arduino's IP address
 
 // Define an API endpoint
 app.get('/on', async (req, res) => {
