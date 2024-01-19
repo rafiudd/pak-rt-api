@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -45,6 +46,8 @@
             cursor: pointer;
         }
     </style>
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon.png">
+
 </head>
 
 <body>
@@ -61,6 +64,18 @@
     <a href="dashboard.html">
         <button class="button-bottom">COBA SEKARANG</button>
     </a>
+    <!-- Add a script to register the service worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
 </body>
 
 </html>
