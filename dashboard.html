@@ -85,7 +85,7 @@
         <a href="config.html" style="text-align: left !important;">Konfigurasi URL</a>
         <br>
         <br>
-        <a href="#" onclick="handleLogout()">Logout</a>
+        <a href="index.html" onclick="handleLogout()">Logout</a>
     </div>
     <script>
 
@@ -118,7 +118,7 @@
                 document.getElementById("username").innerText = username || 'Pak RT';
             } else {
                 // User is not logged in, redirect to authentication page
-                window.location.href.href = "auth.html";
+                window.location.href = "auth.html";
                 return false;
             }
         }
